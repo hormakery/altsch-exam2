@@ -1,0 +1,33 @@
+.auth_content {
+  flex: 1;
+  gap: 30px;
+  display: flex;
+  padding-top: 32px;
+}
+
+.auth_content .repo_content {
+  flex: 1;
+}
+
+.auth_content .repo_content h3 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.auth_content .repo_content_list {
+  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.auth_content .repo_content_list > div {
+  flex: 45%;
+}
+
+.auth_content .loading_repo_content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
