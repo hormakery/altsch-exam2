@@ -26,7 +26,7 @@ const ProtectedRoute = ({ children }) => {
 };
 
 const Layout = () => (
-  <Fragment>å
+  <Fragment>
     <Header />
     <Outlet />
   </Fragment>

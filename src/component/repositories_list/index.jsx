@@ -6,7 +6,7 @@ import Repository from "../../component/repository";
 
 import styles from "./style.module.css";
 
-export default function RepositoriesList({ data, title, children }) {
+export default function RepositoriesList({ data, isLoading, title, children }) {
   const { user } = useAuth();
 
   return (
@@ -27,7 +27,7 @@ export default function RepositoriesList({ data, title, children }) {
         </div>
       ) : null}
 
-      {!data.length && data.isLoading ? (
+      {!data.length && isLoading ? (
         <div className={styles.loading_repo_content}>
           <CgSpinner size={40} className="icon-spinner" />
         </div>

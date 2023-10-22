@@ -3,8 +3,8 @@ import { GoCode } from "react-icons/go";
 import { BsGithub } from "react-icons/bs";
 import { HiOutlineBookOpen } from "react-icons/hi";
 import { RiGitRepositoryLine } from "react-icons/ri";
-import { useLocation, useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useLocation, matchPath, useNavigate } from "react-router-dom";
 
 import Button from "../button";
 import { useAuth } from "../../hooks";
@@ -21,12 +21,6 @@ const tabs = [
     title: "Repositories",
     Icon: RiGitRepositoryLine,
     showNumberOfRepositories: true,
-  },
-  {
-    Icon: GoCode,
-    title: "Code",
-    path: "/repositories/:repositoryId",
-    showOnlyOnRepositoryView: true,
   },
 ];
 
@@ -94,29 +88,30 @@ export default function Header() {
 
       {user ? (
         <div className={styles.header_tabs}>
-          {tabs.map(
-            ({
-              Icon,
-              path,
-              title,
-              showNumberOfRepositories,
-              showOnlyOnRepositoryView,
-            }) => (
-              <div
-                key={title}
-                className={[pathname === path && styles.header_tab]}
-              >
-                <Button onClick={() => navigate(path)}>
-                  <Icon size={18} />
-                  {title}
+          {tabs.map(({ Icon, path, title, showNumberOfRepositories }) => (
+            <div
+              key={title}
+              className={[pathname === path && styles.header_tab]}
+            >
+              <Button onClick={() => navigate(path)}>
+                <Icon size={18} />
+                {title}
 
-                  {totalRepos && showNumberOfRepositories && (
-                    <span>{totalRepos}</span>
-                  )}
-                </Button>
-              </div>
-            )
-          )}
+                {totalRepos && showNumberOfRepositories && (
+                  <span>{totalRepos}</span>
+                )}
+              </Button>
+            </div>
+          ))}
+
+          {matchPath("/repositories/:repositoryId", pathname) ? (
+            <div className={styles.header_tab}>
+              <Button>
+                <GoCode size={18} />
+                Code
+              </Button>
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>

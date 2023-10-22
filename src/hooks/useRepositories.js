@@ -4,19 +4,19 @@ import { useAuth } from "./useAuth";
 import { octokit, useRepoContext } from "../context";
 
 export function useRepositories() {
-  const { isAuthenticated, username } = useAuth();
+  const { isAuthenticated, username, user } = useAuth();
   const { setStore, clearStore, ...rest } = useRepoContext();
 
-  const onGetRepos = async () => {
+  const onGetRepos = async (page = 1) => {
     try {
       setStore({ isLoading: true });
-      const params = { sort: "updated", username };
+      const params = { sort: "updated", username, page };
 
       const { data } = await (username
         ? octokit.rest.repos.listForUser(params)
         : octokit.rest.repos.listForAuthenticatedUser(params));
 
-      setStore({ data });
+      setStore({ data: [...rest.data, ...data] });
     } catch (error) {
       setStore({ error });
     } finally {
@@ -36,5 +36,9 @@ export function useRepositories() {
     }
   }, [isAuthenticated, rest.data.length]);
 
-  return { ...rest };
+  const totalRepos =
+    user?.public_repos +
+    (user?.total_private_repos || user?.owned_private_repos || 0);
+
+  return { ...rest, total_pages: totalRepos, onGetRepos };
 }

@@ -21,6 +21,7 @@ export default function Home() {
       <div className={styles.content}>
         {user !== null ? (
           <RepositoriesList
+            {...repositories}
             title="Popular repositories"
             data={getPopularRepos(repositories.data)}
           >

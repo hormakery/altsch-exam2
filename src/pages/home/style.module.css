@@ -11,7 +11,7 @@
   align-items: center;
   flex-direction: row;
   border-radius: 100px;
-  background-color: #3b3b3b;
+  background-color: var(--input-background);
 }
 
 .content .input {
@@ -27,6 +27,7 @@
   padding: 32px;
   font-size: 18px;
   font-weight: 500;
+  background-color: transparent;
 }
 
 .content .submit {

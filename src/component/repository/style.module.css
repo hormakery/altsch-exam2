@@ -5,25 +5,27 @@
   cursor: pointer;
   border-radius: 6px;
   flex-direction: column;
-  border: 1px rgba(255, 255, 255, 0.1) solid;
+  border: 1px var(--border-line) solid;
 }
 
 .container .title {
   display: flex;
   font-size: 14px;
-  color: #1f6feb;
   font-weight: 600;
   align-items: center;
   justify-content: space-between;
 }
 
+.container .title h1:first-child {
+  color: #1f6feb;
+}
+
 .container .title h1:last-child {
-  color: initial;
   font-size: 12px;
   padding: 1px 8px;
   border-radius: 16px;
   text-transform: capitalize;
-  border: 1px rgba(255, 255, 255, 0.1) solid;
+  border: 1px var(--border-line) solid;
 }
 
 .container > p {

@@ -28,12 +28,18 @@
   display: flex;
   font-size: 12px;
   cursor: pointer;
+  color: #1f6feb;
   font-weight: 500;
   align-items: center;
-  /* color: #1f6feb; */
   background-color: transparent;
 }
 
 .content .see_more svg {
   margin-top: 2.5px;
+}
+
+.content .paginate_list button:disabled {
+  color: gray;
+  cursor: not-allowed;
+  pointer-events: all !important;
 }
