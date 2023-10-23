@@ -16,5 +16,5 @@ export const useRepoContext = () => __useContext(__RepoContext);
 export const useAuthContext = () => __useContext(__AuthContext);
 
 export const octokit = new Octokit({
-  auth: import.meta.env.VITE_ALT_GITHUB_TOKEN,
+  auth: import.meta.env.VITE_ALT_SCH_GITHUB_TOKEN,
 });
