@@ -53,12 +53,26 @@
   border-radius: 6px;
   flex-direction: row;
   align-items: center;
-  background-color: #d7d7d7;
+  color: var(--color);
   border: 1px var(--border-line) solid;
+
+  @media (prefers-color-scheme: light) {
+    background-color: #d7d7d798;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #75757583;
+  }
 }
 
 .header_me button:hover {
-  background-color: #75757583;
+  @media (prefers-color-scheme: light) {
+    background-color: #d7d7d7;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #7575753f;
+  }
 }
 
 .header_me .user_avatar {

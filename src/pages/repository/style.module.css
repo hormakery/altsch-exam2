@@ -1,109 +1,136 @@
 .container {
   flex: 1;
   display: flex;
+  padding-bottom: 16px;
   flex-direction: column;
 }
 
-.content {
-  gap: 25px;
+.container .content {
+  gap: 16px;
   width: 100%;
   display: flex;
   max-width: 1000px;
+  padding-top: 16px;
   align-self: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
 }
 
-.titleWrapper {
+.container .content .title_wrapper {
   gap: 8px;
   display: flex;
-  margin-top: 16px;
-  padding: 20px 10px;
-  border-bottom: 1px rgba(255, 255, 255, 0.1) solid;
+  padding: 10px 0px;
+  align-items: center;
+  border-bottom: 1px var(--border-line) solid;
 }
 
-strong {
+.container .content .title_wrapper h1 {
   font-size: 18px;
   font-weight: 600;
 }
 
-.avatar {
+.container .content .title_wrapper h1:last-child {
+  font-size: 10px;
+  padding: 1px 8px;
+  border-radius: 16px;
+  text-transform: capitalize;
+  border: 1px var(--border-line) solid;
+}
+
+.container .content img {
   width: 24px;
   height: 24px;
   border-radius: 12px;
 }
 
-.branch {
+.container .content .branch {
+  gap: 16px;
   display: flex;
-  padding: 20px 10px;
-  border-radius: 12px;
-  border: 1px rgba(255, 255, 255, 0.1) solid;
+  padding: 16px 10px;
+  border-radius: 5px;
+  align-items: center;
+  border: 1px var(--border-line) solid;
 }
 
-.branch h3 {
-  text-align: start;
+.container .content .branch span {
+  display: flex;
+  min-width: 30px;
+  min-height: 30px;
+  align-items: center;
+  border-radius: 100%;
+  justify-content: center;
+  background-color: grey;
 }
 
-.allCommits {
+.container .content .branch h1 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.container .content .branch h3 {
+  font-size: 11px;
+  line-height: unset;
+}
+
+.container .content .all_commits {
   flex: 1;
   display: flex;
-  border-radius: 12px;
+  border-radius: 5px;
   flex-direction: column;
   justify-content: center;
-  border: 1px rgba(255, 255, 255, 0.1) solid;
+  border: 1px var(--border-line) solid;
 }
 
-.commits {
+.container .content .commits {
   display: flex;
   padding: 15px 10px;
   justify-content: space-between;
-  border-bottom: 1px rgba(255, 255, 255, 0.1) solid;
+  border-bottom: 1px var(--border-line) solid;
 }
 
-.commitHeader {
+.container .content .commit_header {
   gap: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.commits strong {
+.container .content .commits strong {
   font-size: 14px;
 }
 
-.commitTime {
+.container .content .commit_time {
   gap: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.commitTime h3 {
+.container .content .commit_time h3 {
   color: grey;
   font-size: 14px;
   text-align: center;
 }
 
-.commitTime span {
+.container .content .commit_time span {
   color: grey;
   font-weight: 400;
 }
 
-.folders {
+.container .content .folders {
   display: flex;
   padding: 10px 15px;
   justify-content: space-between;
-  border-bottom: 1px rgba(255, 255, 255, 0.1) solid;
+  border-bottom: 1px var(--border-line) solid;
+}
+
+.container .content .folders:last-child {
+  border: none;
 }
 
 .link {
   color: grey;
   text-decoration: none;
-}
-
-.link:hover {
-  color: blue;
-  text-decoration: underline;
 }
 
 .folders h3 {
@@ -115,6 +142,25 @@ strong {
   color: grey;
 }
 
-.commitHeader h3 {
-  color: white;
+.container .content .repo_readme {
+  display: flex;
+  padding: 12px 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  border: 1px var(--border-line) solid;
+}
+
+.container .content .repo_readme h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.container .content .repo_readme svg {
+  margin: 16px 0px;
+  align-self: center;
+}
+
+.markdown > * {
+  all: revert;
+  /* padding: 0px 16px; */
 }
